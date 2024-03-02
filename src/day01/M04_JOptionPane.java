@@ -23,7 +23,11 @@ public class M04_JOptionPane {
         String ageSTR=JOptionPane.showInputDialog("Lütfen Yaşınızı Giriniz");
         int age=Integer.parseInt(ageSTR); // Bir önceki satırda girilen değer sayısal işlemde kullanılancaksa Parsing yapılmalıdır
         String mail=JOptionPane.showInputDialog("Lütfen Mail Adresinizi Giriniz");
-        String pass=JOptionPane.showInputDialog("LÜtfen Şifrenizi Giriniz");
+        String pass=JOptionPane.showInputDialog("Lütfen Şifrenizi Giriniz");
+
+
+
+
 
 
 

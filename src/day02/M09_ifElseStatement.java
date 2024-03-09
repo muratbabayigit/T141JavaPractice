@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class M09_ifElseStatement {
     public static void main(String[] args) {
         /*
+        Interview :
         Kullanıcıdan bir yıl  girmesini isteyin. Yılın artık yıl olup olmadığını kontrol edin.
         Kullanıcya da sonucu ifade edin.
         İpucu:

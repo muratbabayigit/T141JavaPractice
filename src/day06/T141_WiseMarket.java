@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 public class T141_WiseMarket {
    static Scanner scan=new Scanner(System.in);
+   static boolean ekUrun=false;
+   static int urunKodu;
+   static  String urunAd;
+   static int urunFiyat;
+   static int urunAdedi;
+
 /*
    ====================PROJEMIZ===================================
  ilk programa girildiginde bizi bir menu karsilasin bu secenekler
@@ -58,6 +64,56 @@ public class T141_WiseMarket {
         System.out.println("---- Şarküteri Reyonuna Hoşgeldiniz ----");
         System.out.println("Lütfen almak istediğiniz ürünü seçiniz");
         System.out.println("\t101-Peynir   250₺\n\t102-Tereyağ   500₺\n\t103-Yoğurt   30₺\n\t104-Sucuk   320₺\n\t105-Yumurta   95₺");
+        while(!ekUrun){
+            System.out.print("Ürün Kodu: ");
+            urunKodu= scan.nextInt();
+            if(!(urunKodu>=101 && urunKodu<=105)){
+                System.out.println("Yanlış bir kod girdiniz. Tekrar Deneyiniz");
+                sarkuteri();
+            }else if(urunKodu>=101 && urunKodu<=105) {
+                System.out.print("Kaç Paket alacaksınız?: ");
+                urunAdedi=scan.nextInt();
+
+                switch (urunKodu){
+                    case 101:
+                        urunAd="Peynir";
+                        urunFiyat=250;
+                        System.out.println(urunAdedi+" Paket "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
+                        break;
+                    case 102:
+                        urunAd="Tereayağ";
+                        urunFiyat=500;
+                        System.out.println(urunAdedi+" Paket "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
+                        break;
+                    case 103:
+                        urunAd="Yoğurt";
+                        urunFiyat=30;
+                        System.out.println(urunAdedi+" Paket "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
+                        break;
+                    case 104:
+                        urunAd="Sucuk";
+                        urunFiyat=320;
+                        System.out.println(urunAdedi+" Paket "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
+                        break;
+                    case 105:
+                        urunAd="Yumurta";
+                        urunFiyat=95;
+                        System.out.println(urunAdedi+" Paket "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
+                        break;
+
+
+
+
+                }
+
+            }
+
+
+
+
+
+
+        }
 
 
     }

@@ -9,6 +9,8 @@ public class T141_WiseMarket {
    static  String urunAd;
    static int urunFiyat;
    static int urunAdedi;
+   static int toplam;
+   static String sepet="\n ";
 
 /*
    ====================PROJEMIZ===================================
@@ -67,10 +69,12 @@ public class T141_WiseMarket {
         while(!ekUrun){
             System.out.print("Ürün Kodu: ");
             urunKodu= scan.nextInt();
-            if(!(urunKodu>=101 && urunKodu<=105)){
-                System.out.println("Yanlış bir kod girdiniz. Tekrar Deneyiniz");
-                sarkuteri();
-            }else if(urunKodu>=101 && urunKodu<=105) {
+            if (urunKodu==0) {
+                girisEkrani();
+            }else if(!(urunKodu>=101 && urunKodu<=105)){
+             System.out.println("Yanlış bir kod girdiniz. Tekrar Deneyiniz");
+             sarkuteri();
+         }else if(urunKodu>=101 && urunKodu<=105) {
                 System.out.print("Kaç Paket alacaksınız?: ");
                 urunAdedi=scan.nextInt();
 
@@ -100,30 +104,78 @@ public class T141_WiseMarket {
                         urunFiyat=95;
                         System.out.println(urunAdedi+" Paket "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
                         break;
-
-
-
-
                 }
+                urunFiyat=urunAdedi*urunFiyat;
+                toplam+=urunFiyat;
+                System.out.println("Toplam Tutar: "+toplam);
+                sepet+=urunAdedi+" paket"+urunAd+" fiyatı: "+urunFiyat+"'TL'dir";
+
+                System.out.println("Başka bir ürün isterseniz Ürün Kodunu giriniz. İstemiyorsanız ana menüye dönmek için 0 tuşuna basınız");
 
             }
-
-
-
-
-
-
         }
+        ekUrun=false;
 
 
     }
 
     private static void manav() {
-        System.out.println("Manav Reyonuna Hoşgeldiniz");
+        System.out.println("---- Manav Reyonuna Hoşgeldiniz ----");
+        System.out.println("Lütfen almak istediğiniz ürün kodunu giriniz");
+        System.out.println("\t201-Elma   40₺\n\t202-Portakal   40₺\n\t203-Salatalık   30₺\n\t204-Domates   35₺\n\t205-Muz   45₺");
+         while(!ekUrun){
+            System.out.print("ürün Kodu: ");
+            urunKodu= scan.nextInt();
+            if (urunKodu==0){
+                girisEkrani();
+            }else if (!(urunKodu>=201 && urunKodu<=205)){
+                System.out.println("Lütfen Geçerli Bir Kod Giriniz");
+                manav();
+            } else if (urunKodu>=201 && urunKodu<=205) {
+                System.out.println("Kaç kg alacaksınız?");
+                urunAdedi= scan.nextInt();
+                switch (urunKodu){
+                    case 201:
+                        urunAd="Elma";
+                        urunFiyat=40;
+                        System.out.println(urunAdedi+" kg "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir ");
+                        break;
+                    case 202:
+                        urunAd="Portakal";
+                        urunFiyat=40;
+                        System.out.println(urunAdedi+" kg "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
+                        break;
+                    case 203:
+                        urunAd="Salatalık";
+                        urunFiyat=30;
+                        System.out.println(urunAdedi+" kg "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
+                        break;
+                    case 204:
+                        urunAd="Domates";
+                        urunFiyat=35;
+                        System.out.println(urunAdedi+" kg "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
+                        break;
+                    case 205:
+                        urunAd="Muz";
+                        urunFiyat=45;
+                        System.out.println(urunAdedi+" kg "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
+                        break;
+                    default:
+                }
+                urunFiyat=urunAdedi*urunFiyat;
+                toplam+=urunFiyat;
+                System.out.println("Oluşan Tutar: "+toplam);
+                sepet+=urunAd+" : "+urunFiyat+" TL dir\n";
+
+                System.out.println("Başka bir ürün isterseniz Ürün Kodunu giriniz. İstemiyorsanız ana menüye dönmek için 0 tuşuna basınız");
+            }
+        }
+
     }
 
     private static void market() {
-        System.out.println("Market Reyonuna Hoşgeldiniz");
+        System.out.println("---- Market Reyonuna Hoşgeldiniz ----");
+        System.out.println("Lütfen almak istediğiniz ürün kodunu giriniz");
     }
 
     private static void fisYazdir() {

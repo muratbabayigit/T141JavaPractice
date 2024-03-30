@@ -248,7 +248,7 @@ public class T141_WiseMarket {
         }else {
             System.out.println("Para Üstü: "+(odenen-toplam));
         }
-        System.out.println("Bizi tercih ettiğiniz için teşekkür ederiz\nYine Bekleriz");
+        System.out.println("Bizi tercih ettiğiniz için teşekkür ederiz\nYine Bekleriz\n\nTeklif Etme Veresiye, Dost Kalalım Ölesiye (byKerim)");
         LocalDate date=LocalDate.now();
         System.out.println(date);
         cikis();

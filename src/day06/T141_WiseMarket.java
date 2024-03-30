@@ -1,5 +1,6 @@
 package day06;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class T141_WiseMarket {
@@ -108,7 +109,7 @@ public class T141_WiseMarket {
                 urunFiyat=urunAdedi*urunFiyat;
                 toplam+=urunFiyat;
                 System.out.println("Toplam Tutar: "+toplam);
-                sepet+=urunAdedi+" paket"+urunAd+" fiyatı: "+urunFiyat+"'TL'dir";
+                sepet+=urunAd+"    paket "+urunAdedi+"    fiyatı: "+urunFiyat+"'TL'dir\n";
 
                 System.out.println("Başka bir ürün isterseniz Ürün Kodunu giriniz. İstemiyorsanız ana menüye dönmek için 0 tuşuna basınız");
 
@@ -165,21 +166,92 @@ public class T141_WiseMarket {
                 urunFiyat=urunAdedi*urunFiyat;
                 toplam+=urunFiyat;
                 System.out.println("Oluşan Tutar: "+toplam);
-                sepet+=urunAd+" : "+urunFiyat+" TL dir\n";
+                sepet+=urunAd+"    paket "+urunAdedi+"    fiyatı: "+urunFiyat+"'TL'dir\n";
 
                 System.out.println("Başka bir ürün isterseniz Ürün Kodunu giriniz. İstemiyorsanız ana menüye dönmek için 0 tuşuna basınız");
             }
         }
-
+        ekUrun=false;
     }
 
     private static void market() {
         System.out.println("---- Market Reyonuna Hoşgeldiniz ----");
         System.out.println("Lütfen almak istediğiniz ürün kodunu giriniz");
+        System.out.println("\t301-Nutella 750g   128₺\n\t302-Makarna   20₺\n\t303-CiciBebe   50₺\n\t304-Dondurma   75₺\n\t305-Centro Muzlu Gofret   35₺");
+        while(!ekUrun) {
+            System.out.print("Ürün Kodu: ");
+            urunKodu= scan.nextInt();
+            if (urunKodu==0){
+                girisEkrani();
+            } else if (!(urunKodu>=301 && urunKodu<=305)) {
+                System.out.println("Lütfen Geçerli Bir Kod Giriniz");
+                market();
+            } else if (urunKodu>=301 && urunKodu<=305) {
+                System.out.println("Kaç Adet alacaksınız?");
+                urunAdedi= scan.nextInt();
+                switch (urunKodu){
+                    case 301:
+                        urunAd="Nutella 750g";
+                        urunFiyat=128;
+                        System.out.println(urunAdedi+" Adet "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
+                        break;
+                    case 302:
+                        urunAd="Makarna";
+                        urunFiyat=20;
+                        System.out.println(urunAdedi+" Adet "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
+                        break;
+                    case 303:
+                        urunAd="CiciBebe";
+                        urunFiyat=50;
+                        System.out.println(urunAdedi+" Adet "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
+                        break;
+                    case 304:
+                        urunAd="Dondurma";
+                        urunFiyat=75;
+                        System.out.println(urunAdedi+" Adet "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
+                        break;
+                    case 305:
+                        urunAd="Centro Muzlu Gofret";
+                        urunFiyat=35;
+                        System.out.println(urunAdedi+" Adet "+urunAd+" fiyatı: "+(urunAdedi*urunFiyat)+"'TL'dir");
+                        break;
+                    default:
+
+                }
+                urunFiyat=urunAdedi*urunFiyat;
+                toplam+=urunFiyat;
+                System.out.println("Oluşan tutar: "+toplam);
+                sepet+=urunAd+"    paket "+urunAdedi+"    fiyatı: "+urunFiyat+"'TL'dir\n";
+
+                System.out.println("Başka bir ürün isterseniz Ürün Kodunu giriniz. İstemiyorsanız ana menüye dönmek için 0 tuşuna basınız");
+
+            }
+        }
+        ekUrun=false;
     }
 
     private static void fisYazdir() {
         System.out.println("Fiş yazdırma ekranına yönlendiriliyorsunuz");
+        System.out.println("                                             ");
+        System.out.println("-----------   Alışveriş Fişi   -----------");
+        System.out.println("-----------   T141 WISE MARKET   -----------");
+        System.out.println(" ");
+        System.out.println("Alınan Ürünler\n------------------------------\n"+sepet);
+        System.out.println("Toplam tutar: "+toplam);
+        System.out.println("%8 KDV: "+(toplam*0.08));
+        toplam*=1.08;
+        System.out.println("Ödenecek Tutar: "+toplam);
+        System.out.println("Ödenen: ");
+        int odenen= scan.nextInt();
+        if (odenen<toplam){
+            System.out.println("Ödeme yeterli değil. "+(toplam-odenen)+" kadar daha ödeme yapmalısınız.");
+        }else {
+            System.out.println("Para Üstü: "+(odenen-toplam));
+        }
+        System.out.println("Bizi tercih ettiğiniz için teşekkür ederiz\nYine Bekleriz");
+        LocalDate date=LocalDate.now();
+        System.out.println(date);
+        cikis();
     }
 
     private static void cikis() {
